@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.khushi.passwordcracker.HashGeneratorController"
+            styleClass="root-pane">
+
+    <!-- ================= HEADER ================= -->
+
+    <top>
+        <VBox alignment="CENTER"
+              spacing="5"
+              styleClass="header-panel">
+
+            <padding>
+                <Insets top="14" right="20" bottom="16" left="20"/>
+            </padding>
+
+            <HBox alignment="CENTER_LEFT" maxWidth="Infinity">
+                <Button text="←  Dashboard"
+                        onAction="#handleBack"
+                        styleClass="terminal-button-secondary"/>
+            </HBox>
+
+            <Label text="🔑  Generate Hash"
+                   styleClass="title-label"/>
+
+            <Label text="Hash your own authorized test passwords using Java's MessageDigest (SHA-256)."
+                   wrapText="true"
+                   textAlignment="CENTER"
+                   styleClass="subtitle-label"/>
+
+        </VBox>
+    </top>
+
+    <!-- ================= FORM ================= -->
+
+    <center>
+        <VBox alignment="TOP_CENTER"
+              spacing="16">
+
+            <padding>
+                <Insets top="24" right="24" bottom="24" left="24"/>
+            </padding>
+
+            <VBox alignment="TOP_LEFT"
+                  spacing="16"
+                  maxWidth="520"
+                  styleClass="card">
+
+                <Label text="⚙  HASH GENERATOR"
+                       styleClass="section-title"/>
+
+                <Label text="Enter a password you own or are authorized to test."
+                       styleClass="section-subtitle"/>
+
+                <VBox spacing="6">
+                    <Label text="Password" styleClass="field-label"/>
+                    <TextField fx:id="passwordField"
+                               promptText="Enter password to hash"
+                               styleClass="terminal-field"/>
+                </VBox>
+
+                <VBox spacing="6">
+                    <Label text="Hash Algorithm" styleClass="field-label"/>
+                    <ComboBox fx:id="algorithmBox"
+                              prefWidth="300"
+                              maxWidth="Infinity"
+                              styleClass="terminal-field"/>
+                </VBox>
+
+                <HBox spacing="10">
+                    <Button fx:id="generateButton"
+                            text="⚡  GENERATE HASH"
+                            onAction="#handleGenerate"
+                            styleClass="terminal-button-primary"/>
+
+                    <Button text="🧹  CLEAR"
+                            onAction="#handleClear"
+                            styleClass="terminal-button-secondary"/>
+                </HBox>
+
+                <VBox spacing="6">
+                    <Label text="Generated Hash" styleClass="field-label"/>
+                    <TextField fx:id="hashOutputField"
+                               editable="false"
+                               promptText="Generated hash will appear here"
+                               styleClass="terminal-field"/>
+                </VBox>
+
+                <Label fx:id="messageLabel"
+                       text=""
+                       wrapText="true"
+                       styleClass="status-idle"/>
+
+                <HBox spacing="10">
+                    <Button text="📋  COPY HASH"
+                            onAction="#handleCopy"
+                            styleClass="terminal-button-secondary"/>
+
+                    <Button text="➡  USE AS TARGET HASH"
+                            onAction="#handleUseAsTarget"
+                            styleClass="terminal-button-primary"/>
+                </HBox>
+
+            </VBox>
+
+        </VBox>
+    </center>
+
+</BorderPane>

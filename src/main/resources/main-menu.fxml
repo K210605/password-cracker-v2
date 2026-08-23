@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.khushi.passwordcracker.MainMenuController"
+            styleClass="root-pane">
+
+    <!-- ================= HEADER ================= -->
+
+    <top>
+        <VBox alignment="CENTER"
+              spacing="5"
+              styleClass="header-panel">
+
+            <padding>
+                <Insets top="18" right="20" bottom="16" left="20"/>
+            </padding>
+
+            <Label text="🔐  Password Cracker Toolkit"
+                   styleClass="title-label"/>
+
+            <Label text="Educational Password Security Simulator"
+                   styleClass="subtitle-label"/>
+
+            <Label text="SHA-256  •  Multiple Attack Strategies  •  JavaFX"
+                   styleClass="tech-label"/>
+
+        </VBox>
+    </top>
+
+    <!-- ================= MODULE TILES ================= -->
+
+    <center>
+        <HBox alignment="CENTER"
+              spacing="24">
+
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <VBox alignment="CENTER"
+                  spacing="14"
+                  prefWidth="320"
+                  styleClass="card">
+
+                <Label text="🔑" style="-fx-font-size: 36px;"/>
+
+                <Label text="GENERATE HASH"
+                       styleClass="section-title"/>
+
+                <Label text="Hash a password you own or are authorized to test, using SHA-256 - no external site needed."
+                       wrapText="true"
+                       textAlignment="CENTER"
+                       styleClass="section-subtitle"/>
+
+                <Button text="Open Hash Generator"
+                        onAction="#handleOpenHashGenerator"
+                        maxWidth="Infinity"
+                        styleClass="terminal-button-primary"/>
+
+            </VBox>
+
+            <VBox alignment="CENTER"
+                  spacing="14"
+                  prefWidth="320"
+                  styleClass="card">
+
+                <Label text="⚔" style="-fx-font-size: 36px;"/>
+
+                <Label text="PASSWORD ATTACK LAB"
+                       styleClass="section-title"/>
+
+                <Label text="Run Brute Force, Dictionary, Hybrid, Mask, or Markov attacks against a target hash."
+                       wrapText="true"
+                       textAlignment="CENTER"
+                       styleClass="section-subtitle"/>
+
+                <Button text="Open Attack Lab"
+                        onAction="#handleOpenAttackLab"
+                        maxWidth="Infinity"
+                        styleClass="terminal-button-primary"/>
+
+            </VBox>
+
+        </HBox>
+    </center>
+
+</BorderPane>
